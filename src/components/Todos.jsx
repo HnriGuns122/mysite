@@ -1,8 +1,8 @@
-import React from 'react'
-import TodoItem from './TodoItem'
+import React from 'react';
+import TodoItem from './TodoItem';
 
-// Menerima function toggleCompleted sebagai sebuah prop
-const Todos = ({ todos, toggleCompleted }) => {
+// Menerima function toggleCompleted dan deleteTodo sebagai sebuah prop
+const Todos = ({ todos, toggleCompleted, deleteTodo }) => {
   return (
     <div style={styles.container}>
       {todos.map((todo) => {
@@ -10,21 +10,21 @@ const Todos = ({ todos, toggleCompleted }) => {
           <TodoItem
             key={todo.id}
             todo={todo}
-            // Teruskan function toggleCompleted ke component TodoItem
+            // Teruskan function toggleCompleted dan deleteTodo ke component TodoItem
             toggleCompleted={toggleCompleted}
+            deleteTodo={deleteTodo}
           />
-        )
+        );
       })}
     </div>
-  )
-}
-
+  );
+};
 
 const styles = {
   container: {
     width: '40%',
     margin: '0 auto',
   },
-}
+};
 
-export default Todos
+export default Todos;
